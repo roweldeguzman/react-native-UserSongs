@@ -7,6 +7,7 @@ import UserView from './UserView/reducer';
 
 import Songs from './Songs/reducer';
 import Albums from './Album/reducer';
+import AlbumView from './AlbumView/reducer';
 
 export default combineReducers({
   Drawer,
@@ -15,5 +16,6 @@ export default combineReducers({
   UserView,
   Songs,
 
-  Albums
+  Albums,
+  AlbumView
 })

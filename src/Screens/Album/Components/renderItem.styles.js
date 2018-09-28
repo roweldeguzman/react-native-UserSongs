@@ -7,8 +7,7 @@ export default StyleSheet.create({
     backgroundColor: colors.primary,
   },
   itemList: {
-    display: 'flex',
-    flexDirection: 'column',
+    flex: 1,    
     justifyContent: 'center',
     borderStyle: 'solid',
     borderBottomWidth: 1,
@@ -21,6 +20,7 @@ export default StyleSheet.create({
   arrow: {
     position: 'absolute',
     right: 0,
+    lineHeight: 40,
     paddingRight: 10
   },
   title: {

@@ -41,6 +41,15 @@ export default ({
           />
         </View>
         
+        <View style={styles.fieldWrapper}>
+          <Field
+            name="cover"
+            placeholder="Cover URL"
+            keyboardType="url"
+            style={styles.input}
+            component={TextField}
+          />
+        </View>
         
       <View style={styles.buttonContainer}>
 

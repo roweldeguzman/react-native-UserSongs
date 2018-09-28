@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, FlatList } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 
 import styles from './List.styles';
 import RenderItem from './RenderItem';
@@ -23,7 +23,7 @@ export default ({
 }: Props) => (
 
   <View style={styles.container}>
-    {albums.length > 0 && (
+    {albums.length > 0 ? (
       <FlatList
         refreshing={pullRefreshStatus}
         onRefresh={onPullRefresh}
@@ -45,7 +45,10 @@ export default ({
         keyExtractor={(item, index) => index.toString()}
 
       />
-    
+    ) : (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text> No Album Created Yet.</Text>
+      </View>
     )}
 
   </View>

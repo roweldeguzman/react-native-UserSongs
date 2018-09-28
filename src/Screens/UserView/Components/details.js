@@ -27,18 +27,18 @@ export default ({ user }: Props) => (
 
     </View>
 
-      <View style={styles.container}>
+    <View style={styles.container}>
 
-        <View style={[styles.subContainer, { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }]}>
-          <View style={styles.label}>
-            <Text style={styles.text}>Email</Text>
-          </View>
-          <View style={{ flex: 1 }}>
-            <Text style={styles.text} ellipsizeMode='tail' numberOfLines={1}> { user.email } </Text>
-          </View>
+      <View style={[styles.subContainer, { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }]}>
+        <View style={styles.label}>
+          <Text style={styles.text}>Email</Text>
         </View>
-
+        <View style={{ flex: 1 }}>
+          <Text style={styles.text} ellipsizeMode='tail' numberOfLines={1}> { user.email } </Text>
+        </View>
       </View>
+
+    </View>
 
   </View>
 )

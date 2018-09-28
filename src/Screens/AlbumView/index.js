@@ -2,9 +2,17 @@ import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import Component from './Component';
 
-const mapStateToProps = () => ({})
+import selectAlbum from './Selectors/selectAlbum';
 
-const actionCreators = {}
+import componentDidMount from './Handlers/componentDidMount';
+
+const mapStateToProps = (state) => ({
+  album: selectAlbum(state)
+})
+
+const actionCreators = {
+  componentDidMount
+}
 
 const formConfig = {
   form: 'Albums'
