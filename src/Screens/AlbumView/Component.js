@@ -29,7 +29,9 @@ export default class extends React.Component<Props> {
     return (
       <View>
         <TouchableOpacity>
-          <Image source={{uri: `${album.cover}` }} style={styles.image} />
+          {album && (
+            <Image source={{uri: `${album.cover}` }} style={styles.image} />
+          )}
         </TouchableOpacity>
         <ScrollView style={styles.scroll }>
           <Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text>

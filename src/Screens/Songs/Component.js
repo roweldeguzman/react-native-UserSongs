@@ -5,7 +5,7 @@ export const TRACKS = [
   {
     title: 'Sorry',
     artist: 'Justin Bieber',
-    albumArtUrl: "https://freemusicdownloads.world/wp-content/uploads/2017/05/Justin_Bieber_-_Sorry_Official_Single_Cover.png",
+    albumArtUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/f6/40/c8/f640c8b9-b2f8-905a-9fff-2d38d8bfe35b/UMG_cvrart_00602547587428_01_RGB72_1500x1500_15UMGIM59808.jpg/268x0w.jpg",
     audioUrl: "http://freemusicdownloads.world/wp-content/uploads/2017/05/Justin-Bieber-Sorry-PURPOSE-The-Movement.mp3"
   }, {
     title: 'Love Yourself',

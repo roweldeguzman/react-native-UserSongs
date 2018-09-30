@@ -20,6 +20,7 @@ export default ({
     animationType='slide'
     transparent={false}
     visible={albumModalVisibility}
+    onRequestClose={()=> null}
   >
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', height: '70%' }}>
 

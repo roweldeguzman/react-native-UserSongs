@@ -24,15 +24,15 @@ export default class Player extends Component {
     };
   }
 
-  setDuration(data) {
+  setDuration = (data) => {
     this.setState({totalLength: Math.floor(data.duration)});
   }
 
-  setTime(data) {
+  setTime = (data) => {
     this.setState({currentPosition: Math.floor(data.currentTime)});
   }
 
-  seek(time) {
+  seek = (time) => {
     time = Math.round(time);
     this.refs.audioElement && this.refs.audioElement.seek(time);
     this.setState({
@@ -107,7 +107,7 @@ export default class Player extends Component {
       <View style={styles.container}>
         
         <Header message="Playing from Charts" />
-
+          
         <AlbumArt url={track.albumArtUrl} />
 
         <TrackDetails title={track.title} artist={track.artist} />

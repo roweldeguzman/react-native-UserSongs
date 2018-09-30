@@ -14,16 +14,15 @@ type Props = {
   url: string,
   onPress: () => void
 }
-export default ({ url, onPress }: Props) => (
-  <View style={styles.container}>
-    <TouchableOpacity onPress={onPress}>
-      <Image
-        style={styles.image}
-        source={{uri: url}}
-      />
-    </TouchableOpacity>
-  </View>
-)
+export default ({ url, onPress }: Props) => {
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={onPress}>
+        <Image style={styles.image} source={{ uri: url }} />
+      </TouchableOpacity>
+    </View>
+  )
+}
 
 const { width, height } = Dimensions.get('window');
 const imageSize = width - 48;
@@ -35,6 +34,6 @@ const styles = StyleSheet.create({
   },
   image: {
     width: imageSize,
-    height: imageSize,
+    height: width - 74,
   },
 })
