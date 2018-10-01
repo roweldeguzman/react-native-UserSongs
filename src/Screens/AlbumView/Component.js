@@ -33,17 +33,13 @@ export default class extends React.Component<Props> {
             <Image source={{uri: `${album.cover}`, cache: 'only-if-cached' }} style={styles.image} />
           )}
         </TouchableOpacity>
+
         <ScrollView style={styles.scroll }>
-          <Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text>
-          <Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text>
-          <Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text>
-          <Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text>
-          <Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text>
-          <Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text>
-          <Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text>
-          <Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text>
+
           <Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Text a </Text><Text> Rowel de Guzman</Text>
+
         </ScrollView>
+
       </View>
     )
     
