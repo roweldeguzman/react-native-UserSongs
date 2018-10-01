@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet ,Modal, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet ,Modal, View, Text, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 
 import { Field } from 'redux-form';
 import TextField from '../../../Common/Components/TextField';
@@ -16,14 +16,16 @@ export default ({
   onPressAlbumModalCancel,
   onPressCreate
 }: Props) => (
+  
   <Modal
     animationType='slide'
     transparent={false}
     visible={albumModalVisibility}
     onRequestClose={()=> null}
   >
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', height: '70%' }}>
-
+    
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', height: '70%' }}>
+        
         <View style={styles.fieldWrapper}>
           <Field
             name="title"
@@ -52,21 +54,22 @@ export default ({
           />
         </View>
         
-      <View style={styles.buttonContainer}>
+        <View style={styles.buttonContainer}>
 
-        <TouchableOpacity onPress={onPressCreate} style={[styles.buttonBottom, { marginLeft: 2.5}]}>
-          <Text> Create </Text>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={onPressCreate} style={[styles.buttonBottom, { marginLeft: 2.5}]}>
+            <Text> Create </Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity onPress={onPressAlbumModalCancel} style={[styles.buttonBottom, { marginRight: -2.5, backgroundColor: '#ff9800' }]}>
-          <Text style={{ color: '#FFFFFF' }}> Cancel </Text>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={onPressAlbumModalCancel} style={[styles.buttonBottom, { marginRight: -2.5, backgroundColor: '#ff9800' }]}>
+            <Text style={{ color: '#FFFFFF' }}> Cancel </Text>
+          </TouchableOpacity>
 
+        </View>
+        
       </View>
 
-    </View>
-
   </Modal>
+  
 )
 
 

@@ -13,7 +13,7 @@ export const TRACKS = [
     albumArtUrl: "https://freemusicdownloads.world/wp-content/uploads/2017/05/love-yourself-cover-Justin-Biber.jpg",
     audioUrl: 'http://freemusicdownloads.world/wp-content/uploads/2017/05/Justin-Bieber-Love-Yourself-PURPOSE-The-Movement.mp3',
   }, {
-    itle: 'You belong with me',
+    title: 'You belong with me',
     artist: 'Taylor Swift',
     albumArtUrl: 'https://freemusicdownloads.world/wp-content/uploads/2017/05/You-belong-with-me-Taylor-Swift.jpg',
     audioUrl: 'http://freemusicdownloads.world/wp-content/uploads/2017/05/Taylor-Swift-You-Belong-With-Me.mp3',

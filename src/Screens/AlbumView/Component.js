@@ -30,7 +30,7 @@ export default class extends React.Component<Props> {
       <View>
         <TouchableOpacity>
           {album && (
-            <Image source={{uri: `${album.cover}` }} style={styles.image} />
+            <Image source={{uri: `${album.cover}`, cache: 'only-if-cached' }} style={styles.image} />
           )}
         </TouchableOpacity>
         <ScrollView style={styles.scroll }>

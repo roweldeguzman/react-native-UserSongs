@@ -1,12 +1,11 @@
 import * as React from 'react';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+
+
+import styles from './Header.styles';
 
 type Props = {
   message: string,
@@ -14,6 +13,7 @@ type Props = {
   onQueuePress: () => void,
   onMessagePress: () => void
 }
+
 export default ({ 
   message,
   onDownPress,
@@ -22,37 +22,17 @@ export default ({
 }: Props) => (
 
   <View style={styles.container}>
+
     <TouchableOpacity onPress={onDownPress}>
-      <Image style={styles.button}
-        source={require('../../../../img/ic_keyboard_arrow_down_white.png')} />
+      <Ionicons name="ios-arrow-down" size={20} color="white" />
     </TouchableOpacity>
-    <Text onPress={onMessagePress}
-      style={styles.message}>{message.toUpperCase()}</Text>
+
+    <Text onPress={onMessagePress} style={styles.message}>{message.toUpperCase()}</Text>
+
     <TouchableOpacity onPress={onQueuePress}>
-      <Image style={styles.button}
-        source={require('../../../../img/ic_queue_music_white.png')} />
+      <MaterialIcons name="queue-music" size={20} color="white" />
     </TouchableOpacity>
+
 </View>
 
 )
-
-
-const styles = StyleSheet.create({
-  container: {
-    height: 72,
-    paddingTop: 20,
-    paddingLeft: 12,
-    paddingRight: 12,
-    flexDirection: 'row',
-  },
-  message: {
-    flex: 1,
-    textAlign: 'center',
-    color: 'rgba(255, 255, 255, 0.72)',
-    fontWeight: 'bold',
-    fontSize: 10,
-  },
-  button: {
-    opacity: 0.72
-  }
-});

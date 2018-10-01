@@ -38,7 +38,7 @@ export default ({
             
             <View style={{flex: 1, flexDirection: 'row'}}>
               <View style={{ flex: 0.1,  }}>
-                <Image source={{uri: `${item.cover}` }} style={{ width: 32, height: 40 }} />
+                <Image source={{uri: `${item.cover}`, cache: 'only-if-cached' }} style={{ width: 32, height: 40 }} />
               </View>
 
               <View style={{ flex: 0.9 }}>

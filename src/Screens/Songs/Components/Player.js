@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { View, StatusBar } from 'react-native';
+import { View, StatusBar, SafeAreaView } from 'react-native';
 
 import Header from './Header';
 import AlbumArt from './AlbumArt';
@@ -104,35 +104,38 @@ export default class Player extends Component {
     );
 
     return (
-      <View style={styles.container}>
-        
-        <Header message="Playing from Charts" />
+      <SafeAreaView style={styles.container}>
+      
+        <View style={styles.container}>
           
-        <AlbumArt url={track.albumArtUrl} />
+          <Header message="Playing from Charts" />
+            
+          <AlbumArt url={track.albumArtUrl} />
 
-        <TrackDetails title={track.title} artist={track.artist} />
+          <TrackDetails title={track.title} artist={track.artist} />
 
-        <SeekBar
-          onSeek={this.seek.bind(this)}
-          trackLength={this.state.totalLength}
-          onSlidingStart={() => this.setState({paused: true})}
-          currentPosition={this.state.currentPosition} />
+          <SeekBar
+            onSeek={this.seek.bind(this)}
+            trackLength={this.state.totalLength}
+            onSlidingStart={() => this.setState({paused: true})}
+            currentPosition={this.state.currentPosition} />
 
-        <Controls
-          onPressRepeat={() => this.setState({repeatOn : !this.state.repeatOn})}
-          repeatOn={this.state.repeatOn}
-          shuffleOn={this.state.shuffleOn}
-          forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
-          onPressShuffle={() => this.setState({shuffleOn: !this.state.shuffleOn})}
-          onPressPlay={() => this.setState({paused: false})}
-          onPressPause={() => this.setState({paused: true})}
-          onBack={this.onBack.bind(this)}
-          onForward={this.onForward.bind(this)}
-          paused={this.state.paused}/>
+          <Controls
+            onPressRepeat={() => this.setState({repeatOn : !this.state.repeatOn})}
+            repeatOn={this.state.repeatOn}
+            shuffleOn={this.state.shuffleOn}
+            forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
+            onPressShuffle={() => this.setState({shuffleOn: !this.state.shuffleOn})}
+            onPressPlay={() => this.setState({paused: false})}
+            onPressPause={() => this.setState({paused: true})}
+            onBack={this.onBack.bind(this)}
+            onForward={this.onForward.bind(this)}
+            paused={this.state.paused}/>
 
-        {video}
+          {video}
 
-      </View>
+        </View>
+      </SafeAreaView>
     )
   }
 }
