@@ -9,21 +9,25 @@ import styles from './Header.styles';
 
 type Props = {
   message: string,
-  onDownPress: () => void,
+  /* onDownPress: () => void, */
   onQueuePress: () => void,
-  onMessagePress: () => void
+  onMessagePress: () => void,
+
+  onPressHideTrackControls: () => void
 }
 
 export default ({ 
   message,
-  onDownPress,
+  /* onDownPress, */
   onQueuePress,
-  onMessagePress
+  onMessagePress,
+
+  onPressHideTrackControls
 }: Props) => (
 
   <View style={styles.container}>
 
-    <TouchableOpacity onPress={onDownPress}>
+    <TouchableOpacity onPress={onPressHideTrackControls}>
       <Ionicons name="ios-arrow-down" size={20} color="white" />
     </TouchableOpacity>
 

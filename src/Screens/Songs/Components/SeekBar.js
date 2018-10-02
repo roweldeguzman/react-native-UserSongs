@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 
+
 import styles from './SeekBar.styles';
 
 import Slider from 'react-native-slider';
-
-
 
 
 function pad(n, width, z=0) {
@@ -22,6 +21,9 @@ const minutesAndSeconds = (position) => ([
 type Props = {
   trackLength: number,
   currentPosition: number,
+  tractControlVisibility: boolean,
+
+
   onSeek: () => void,
   onSlidingStart: () => void,
 }
@@ -29,6 +31,8 @@ type Props = {
 export default ({
   trackLength,
   currentPosition,
+  tractControlVisibility,
+
   onSeek,
   onSlidingStart
 }: Props) => {
@@ -37,7 +41,7 @@ export default ({
   const remaining = minutesAndSeconds(trackLength - currentPosition);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, tractControlVisibility ? []: { bottom: 50 }]}>
 
       <View style={{flexDirection: 'row'}}>
 

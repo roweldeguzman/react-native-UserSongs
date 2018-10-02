@@ -12,6 +12,8 @@ type Props = {
   shuffleOn: boolean,
   repeatOn: boolean,
   forwardDisabled: boolean,
+  tractControlVisibility: boolean,
+
 
   onPressPlay: () => void,
   onPressPause: () => void,
@@ -26,6 +28,7 @@ export default ({
   shuffleOn,
   repeatOn,
   forwardDisabled,
+  tractControlVisibility,
 
   onPressPlay,
   onPressPause,
@@ -34,7 +37,7 @@ export default ({
   onPressShuffle,
   onPressRepeat
 }) => (
-  <View style={styles.container}>
+  <View style={[styles.container, tractControlVisibility ? [] : { display: 'none' } ]}>
 
     <TouchableOpacity activeOpacity={0.0} onPress={onPressShuffle}>
       <MaterialIcons name='shuffle' size={24} color='white' style={[styles.secondaryControl, shuffleOn ? [] : styles.off]}  />

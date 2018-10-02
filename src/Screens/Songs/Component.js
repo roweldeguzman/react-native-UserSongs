@@ -21,7 +21,13 @@ export const TRACKS = [
 ];
 
 type Props = {
-  componentDidMount: () => void
+  tractControlVisibility: boolean,
+  playerConfig: {},
+
+  componentDidMount: () => void,
+  onPressHideTrackControls: () => void,
+
+  onVideoLoad: () => void
 }
 
 export default class extends Component<Props> {
@@ -29,8 +35,28 @@ export default class extends Component<Props> {
   componentDidMount = () => this.props.componentDidMount();
 
   render() {
+    const {
+      playerConfig,
+
+
+      tractControlVisibility,
+      onPressHideTrackControls,
+      onPressShowTrackControls,
+      
+      onVideoLoad
+    } = this.props;
+
     return (
-      <Player tracks={TRACKS} />
+      <Player
+        playerConfig={playerConfig}
+        tractControlVisibility={tractControlVisibility}
+        tracks={TRACKS}
+        
+        onPressHideTrackControls={onPressHideTrackControls}
+        onPressShowTrackControls={onPressShowTrackControls}
+
+        onVideoLoad={onVideoLoad}
+      />
     )
   }
 }

@@ -71,15 +71,6 @@ export default class Player extends Component {
         isChanging: false,
         selectedTrack: this.state.selectedTrack + 1,
       }), 0);
-    } else {
-      setTimeout(() => this.setState({
-        currentPosition: 0,
-        totalLength: 1,
-        paused: false,
-        isChanging: false,
-        selectedTrack: this.state.selectedTrack - 1,
-      }), 0);
-      this.onBack();
     }
   }
 
@@ -88,51 +79,74 @@ export default class Player extends Component {
   }
   
   render() {
+    const { onVideoLoad } = this.props;
+    
     const track = this.props.tracks[this.state.selectedTrack];
     const video = this.state.isChanging ? null : (
-      <Video source={{uri: track.audioUrl}} // Can be a URL or a local file.
+      <Video
+        source={{uri: track.audioUrl}} // Can be a URL or a local file.
         ref="audioElement"
-        paused={this.state.paused}               // Pauses playback entirely.
-        resizeMode="cover"           // Fill the whole screen at aspect ratio.
-        repeat={true}                // Repeat forever.
+        paused={this.state.paused} // Pauses playback entirely.
+        resizeMode="cover" // Fill the whole screen at aspect ratio.
+        repeat={true} // Repeat forever.
         onLoadStart={this.loadStart} // Callback when video starts to load
-        onLoad={this.setDuration.bind(this)}    // Callback when video loads
-        onProgress={this.setTime.bind(this)}    // Callback every ~250ms with currentTime
-        onEnd={this.onForward}           // Callback when playback finishes
-        onError={this.videoError}    // Callback when video cannot be loaded
-        style={styles.audioElement} />
+        onLoad={onVideoLoad} // Callback when video loads
+        onProgress={this.setTime.bind(this)} // Callback every ~250ms with currentTime
+        onEnd={this.onForward} // Callback when playback finishes
+        onError={this.videoError} // Callback when video cannot be loaded
+        style={styles.audioElement}
+      />
     );
 
+    const {
+      tractControlVisibility,
+      onPressHideTrackControls,
+      onPressShowTrackControls
+    } = this.props;
     return (
       <SafeAreaView style={styles.container}>
       
         <View style={styles.container}>
           
-          <Header message="Playing from Charts" />
-            
-          <AlbumArt url={track.albumArtUrl} />
+          <Header
+            message="Playing from Charts"
+            onPressHideTrackControls={onPressHideTrackControls}
+          />
 
-          <TrackDetails title={track.title} artist={track.artist} />
+          {tractControlVisibility && (
+            <AlbumArt url={track.albumArtUrl} />
+          )}
+
+          <TrackDetails
+            title={track.title}
+            artist={track.artist}
+            tractControlVisibility={tractControlVisibility}
+          />
 
           <SeekBar
             onSeek={this.seek.bind(this)}
             trackLength={this.state.totalLength}
-            onSlidingStart={() => this.setState({paused: true})}
-            currentPosition={this.state.currentPosition} />
+            onSlidingStart={() => this.setState({ paused: true })}
+            currentPosition={this.state.currentPosition}
+            tractControlVisibility={tractControlVisibility}
+            onPressShowTrackControls={onPressShowTrackControls}
+          />
 
           <Controls
-            onPressRepeat={() => this.setState({repeatOn : !this.state.repeatOn})}
+            onPressRepeat={() => this.setState({ repeatOn : !this.state.repeatOn })}
             repeatOn={this.state.repeatOn}
             shuffleOn={this.state.shuffleOn}
             forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
-            onPressShuffle={() => this.setState({shuffleOn: !this.state.shuffleOn})}
-            onPressPlay={() => this.setState({paused: false})}
-            onPressPause={() => this.setState({paused: true})}
+            onPressShuffle={() => this.setState({ shuffleOn: !this.state.shuffleOn })}
+            onPressPlay={() => this.setState({ paused: false })}
+            onPressPause={() => this.setState({ paused: true })}
             onBack={this.onBack.bind(this)}
             onForward={this.onForward.bind(this)}
-            paused={this.state.paused}/>
+            paused={this.state.paused}
+            tractControlVisibility={tractControlVisibility}
+          />
 
-          {video}
+          { video }
 
         </View>
       </SafeAreaView>
